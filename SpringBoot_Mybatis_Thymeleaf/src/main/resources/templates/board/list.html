@@ -12,7 +12,51 @@
 
 	<!-- /member/memberJoin -->
 	<!-- com.~member.MemberController.get.setJoin -->
-	<h1 th:text="${board}"></h1>
+	<div class="container">
+	<h2 th:text="${board}"></h2>
+
+	<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">num</th>
+      <th scope="col">title</th>
+      <th scope="col">writer</th>
+      <th scope="col">date</th>
+      <th scope="col">hit</th>
+      <th scope="col">index</th>
+      <th scope="col">count</th>
+      <th scope="col">size</th>
+      <th scope="col">Current</th>
+      <th scope="col">even</th>
+      <th scope="col">odd</th>
+      <th scope="col">first</th>
+      <th scope="col">last</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- vo는 변수명 -->
+    <tr th:each="vo,state : ${list}">
+      <th scope="row" th:text="${vo.num}"></th>
+      <!-- a태그안에 th:text써야지 먹어짐 -->
+      <td><a href="#" th:href="@{./select(num=${vo.num},title='test')}" th:text="${vo.title}">f</a></td>
+    			 <!-- @{|${board}select|} -->
+    			 <!-- parameter전송 @{url주소(파라미터명=값)} -->
+      <td th:text="${vo.writer}"></td>
+      <td th:text="${vo.regDate}"></td>
+      <td th:text="${vo.hit}"></td>
+      <td th:text="${state.index}"></td> <!-- 인덱스 번호를 가져옴 0부터시작 -->
+      <td th:text="${state.count}"></td> <!-- 횟수 번호 1부터시작-->
+      <td th:text="${state.size}"></td> <!-- 총 갯수 -->
+      <td th:text="${state.current}"></td> <!-- 현재 요소 -->
+      <td th:text="${state.even}"></td> <!-- 현재 반복의 짝수여부 -->
+      <td th:text="${state.odd}"></td> <!-- 현재 반복의 홀수여부 -->
+      <td th:text="${state.first}"></td> <!-- 현재 반복이 첫번째 여부 -->
+      <td th:text="${state.last}"></td> <!-- 현재 반복의 마지막 여부 -->
+    </tr>
+  </tbody>
+</table>
+
+	</div>
 	<!-- footer -->
 	<div th:replace="/fragments/default :: footer"></div>
 </body>
