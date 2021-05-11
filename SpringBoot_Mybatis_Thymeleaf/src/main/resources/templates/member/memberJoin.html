@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/fragments/default :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- header -->
+	<div th:include="/fragments/default :: header"></div>
+	<!-- jumbo -->
+	<div th:replace="/fragments/default :: body"></div>
+
+	<!-- /member/memberJoin -->
+	<!-- com.~member.MemberController.get.setJoin -->
+	<h1>memberJoinPage</h1>
+	<!-- footer -->
+	<div th:replace="/fragments/default :: footer"></div>
+</body>
+</html>
