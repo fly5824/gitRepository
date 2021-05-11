@@ -43,7 +43,15 @@
   </div>
 </div>
 
-<footer class="footer mt-auto py-3 bg-light">
+<div class="insert" th:insert="./fragments/frag ::copy">
+</div>
+
+<div class="replace" th:replace="./fragments/frag ::copy">
+</div>
+
+<div class="include" th:include="./fragments/frag ::copy">
+</div>
+<footer th:fragment="footer" class="footer mt-auto py-3 bg-light" >
   <div class="container">
     <span class="text-muted">Place sticky footer content here.</span>
   </div>
