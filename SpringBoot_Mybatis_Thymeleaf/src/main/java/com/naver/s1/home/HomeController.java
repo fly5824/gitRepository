@@ -16,7 +16,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(Model model){
-		model.addAttribute("message","thymeleaf project");
+		/* model.addAttribute("message","thymeleaf project"); */
 		return "index";
 	}
 }
