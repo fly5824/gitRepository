@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.naver.s1.board.BoardVO;
+import com.naver.s1.util.Pager;
 
 @SpringBootTest
 class NoticeMapperTest {
@@ -17,9 +18,9 @@ class NoticeMapperTest {
 	private NoticeMapper noticeMapper;
 	
 	@Test
-	void getListTest()throws Exception {
+	void getListTest(Pager pager)throws Exception {
 	
-		List<BoardVO> ar = noticeMapper.getList();
+		List<BoardVO> ar = noticeMapper.getList(pager);
 		
 		for(BoardVO boardVO:ar) {
 			System.out.println(boardVO.toString());

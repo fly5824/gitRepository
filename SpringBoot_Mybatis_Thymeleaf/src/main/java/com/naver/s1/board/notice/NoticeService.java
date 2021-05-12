@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.naver.s1.board.BoardService;
 import com.naver.s1.board.BoardVO;
+import com.naver.s1.util.Pager;
 
 @Service
 public class NoticeService implements BoardService{
@@ -15,9 +16,11 @@ public class NoticeService implements BoardService{
 	private NoticeMapper noticeMapper;
 	
 	@Override
-	public List<BoardVO> getList() throws Exception {
-		// TODO Auto-generated method stub
-		return noticeMapper.getList();
+	public List<BoardVO> getList(Pager pager) throws Exception {
+		pager.makeRow();
+		Long totalCount = noticeMapper.getTotalCount(pager);
+		pager.makeNum(totalCount);
+		return noticeMapper.getList(pager);
 	}
 
 	@Override
@@ -28,8 +31,8 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public int setInsert(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return noticeMapper.setInsert(boardVO);
+		
 	}
 
 	@Override

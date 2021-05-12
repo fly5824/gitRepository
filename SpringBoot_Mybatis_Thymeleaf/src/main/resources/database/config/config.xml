@@ -7,6 +7,6 @@
   <typeAliases>
   <typeAlias type="com.naver.s1.board.BoardVO" alias="BoardVO"/>
   <typeAlias type="com.naver.s1.board.notice.NoticeVO" alias="NoticeVO"/>
-  
+  <typeAlias type="com.naver.s1.util.Pager" alias="Pager"/>
   </typeAliases>
   </configuration>
